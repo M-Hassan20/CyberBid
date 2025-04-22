@@ -82,7 +82,7 @@
 }
 
 .navbar.authenticated .nav-links a {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .light .nav-links a {
@@ -180,6 +180,8 @@
   display: inline-block;
   width: 48px;
   height: 24px;
+  overflow: hidden;
+  border-radius: 46px;
 }
 
 .navbar.authenticated .switch {
@@ -202,6 +204,9 @@
   bottom: 0;
   background-color: #ccc;
   transition: .4s;
+  border-radius: 36px;
+  overflow: hidden;
+  
 }
 
 .slider:before {
@@ -284,19 +289,11 @@ input:checked + .slider:before {
 
 .navbar.authenticated .nav-link-button {
   margin: 0 8px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .nav-link-button:hover {
   color: #0056b3;
-}
-
-.nav-welcome {
-  margin-right: 8px;
-}
-
-.navbar.authenticated .nav-welcome {
-  font-size: 14px;
 }
 
 .dark .nav-link {
@@ -307,7 +304,6 @@ input:checked + .slider:before {
   color: #4a90e2;
 }
 
-/* Profile icon styles - only shown when authenticated */
 .profile-icon {
   margin-left: 10px;
   width: 35px;
@@ -333,7 +329,7 @@ input:checked + .slider:before {
   background-color: #444;
 }
 
-/* For responsive design */
+
 @media (max-width: 768px) {
   .navbar {
       flex-direction: column;
@@ -404,4 +400,62 @@ input:checked + .slider:before {
       width: 100%;
       text-align: left;
   }
+}
+
+.profile-container {
+  position: relative;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.navbar.authenticated .profile-container {
+  transform: translateX(-10px);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1001;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.dark .dropdown-menu {
+  background-color: #333;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dark .dropdown-item {
+  color: #ddd;
+}
+
+.dark .dropdown-item:hover {
+  background-color: #444;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

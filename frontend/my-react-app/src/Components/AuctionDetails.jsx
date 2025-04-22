@@ -18,7 +18,7 @@ const AuctionDetails = () => {
       const response = await axios.get(
         `http://localhost:3000/auction_details?page=${page}&limit=${pagination.limit}`
       );
-      setAuctions(response.data.auction_details);
+      setAuctions(response.data.auctions_details);
       setPagination(response.data.pagination);
     } catch (error) {
       console.error("Error fetching auctions:", error);

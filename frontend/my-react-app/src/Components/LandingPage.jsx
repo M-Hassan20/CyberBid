@@ -16,8 +16,8 @@ const LandingPage = () => {
             Unlock the power of online bidding with CyberBid, your ultimate destination for buying and selling unique items through competitive auctions. Whether you’re a passionate seller or a savvy buyer, CyberBid offers a secure, intuitive, and feature-rich platform for all.
           </p>
           <div className="hero-buttons">
-            <Link to="/register-buyer" className="btn">Register as Buyer</Link>
-            <Link to="/register-seller" className="btn">Register as Seller</Link>
+            <Link to="/register/buyer" className="btn">Register as Buyer</Link>
+            <Link to="/register/seller" className="btn">Register as Seller</Link>
           </div>
         </div>
       </div>

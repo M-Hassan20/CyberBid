@@ -304,31 +304,6 @@ input:checked + .slider:before {
   color: #4a90e2;
 }
 
-.profile-icon {
-  margin-left: 10px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.profile-icon:hover {
-  background-color: #d0d0d0;
-}
-
-.dark .profile-icon {
-  background-color: #333;
-}
-
-.dark .profile-icon:hover {
-  background-color: #444;
-}
-
 
 @media (max-width: 768px) {
   .navbar {
@@ -402,15 +377,7 @@ input:checked + .slider:before {
   }
 }
 
-.profile-container {
-  position: relative;
-  margin-left: 10px;
-  transition: transform 0.3s ease;
-}
 
-.navbar.authenticated .profile-container {
-  transform: translateX(-10px);
-}
 
 .dropdown-menu {
   position: absolute;
@@ -458,4 +425,101 @@ input:checked + .slider:before {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile icon related */
+
+/* Navbar Profile Icon Styles */
+.navbar-profile-container {
+  position: relative;
+  margin-left: 10px;
+}
+
+.navbar-profile-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #4a90e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-profile-icon:hover {
+  background-color: #3a7bc8;
+}
+
+.dark .navbar-profile-icon {
+  background-color: #3a7bc8;
+  color: white;
+}
+
+.dark .navbar-profile-icon:hover {
+  background-color: #2a6cb8;
+}
+
+/* Navbar Dropdown Menu Styles */
+.navbar-dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  min-width: 150px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.dark .navbar-dropdown-menu {
+  background-color: #333;
+}
+
+.navbar-dropdown-item {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button.navbar-dropdown-item {
+  width: 100%;
+}
+
+.navbar-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dark .navbar-dropdown-item {
+  color: #f0f0f0;
+}
+
+.dark .navbar-dropdown-item:hover {
+  background-color: #444;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

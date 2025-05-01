@@ -1,0 +1,234 @@
+.create-auction-form {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .form-header h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .progress-indicator {
+    display: flex;
+    align-items: center;
+  }
+  
+  .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eee;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .step.active {
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  .step-line {
+    width: 40px;
+    height: 2px;
+    background-color: #eee;
+    margin: 0 5px;
+  }
+  
+  .error-banner {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  label {
+    display: block;
+    color: #555;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="datetime-local"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #333;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="datetime-local"]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+  
+  input.error,
+  select.error {
+    border-color: #c62828;
+    background-color: #fff8f8;
+  }
+  
+  .error-message {
+    color: #c62828;
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+  
+  .image-url-error {
+    margin-bottom: 8px;
+  }
+  
+  .image-urls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .image-url-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remove-image-btn {
+    background: none;
+    border: none;
+    color: #f44336;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    transition: opacity 0.3s;
+  }
+  
+  .remove-image-btn:hover {
+    opacity: 0.7;
+  }
+  
+  .add-image-btn {
+    background: none;
+    border: 1px dashed #4a90e2;
+    border-radius: 6px;
+    color: #4a90e2;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .add-image-btn:hover {
+    background-color: #f5f9ff;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .right-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .primary-btn,
+  .secondary-btn,
+  .back-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+  }
+  
+  .primary-btn {
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  .primary-btn:hover {
+    background-color: #3a7bc8;
+  }
+  
+  .secondary-btn {
+    background-color: #f0f0f0;
+    color: #555;
+  }
+  
+  .secondary-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .back-btn {
+    background-color: transparent;
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
+  }
+  
+  .back-btn:hover {
+    background-color: #f5f9ff;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  
+    .form-actions {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .right-buttons {
+      width: 100%;
+    }
+  
+    .back-btn,
+    .right-buttons button {
+      flex: 1;
+    }
+  }

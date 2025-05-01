@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AuctionDetails.css";
+import { isAuthenticated, getAuthHeader } from "../utils/authUtils"; // adjust the path if needed
+import { useNavigate } from "react-router-dom";
+import PlaceBid from "./PlaceBid";
 
 const AuctionDetails = () => {
   const [auctions, setAuctions] = useState([]);
@@ -12,11 +15,25 @@ const AuctionDetails = () => {
   });
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect if not authenticated
+    if (!isAuthenticated()) {
+      navigate("/login");
+    } else {
+      fetchAuctions(pagination.page);
+    }
+  }, []);
+
   const fetchAuctions = async (page = 1) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:3000/auction_details?page=${page}&limit=${pagination.limit}`
+        `http://localhost:3000/auction-details?page=${page}&limit=${pagination.limit}`,
+        {
+          headers: getAuthHeader(),
+        }
       );
       setAuctions(response.data.auctions_details);
       setPagination(response.data.pagination);
@@ -26,10 +43,6 @@ const AuctionDetails = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetchAuctions(pagination.page);
-  }, []);
 
   const handlePageChange = (newPage) => {
     if (newPage > 0 && newPage <= pagination.pages) {
@@ -110,12 +123,11 @@ const AuctionDetails = () => {
                     </span>
                   </div>
                 </div>
-                <a
-                  href={`/auction/${auction.auction_id}`}
-                  className="bid-button"
-                >
-                  Place Bid
-                </a>
+                <PlaceBid 
+                  auctionId={auction.auction_id}
+                  currentPrice={auction.current_price || auction.starting_price}
+                  onBidPlaced={(newBid) => handleBidPlaced(auction.auction_id, newBid)}
+                />
               </div>
             ))}
           </div>

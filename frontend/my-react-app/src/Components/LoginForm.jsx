@@ -38,18 +38,18 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (data.token) {
-        localStorage.setItem("authToken", data.token);
+        localStorage.setItem("token", data.token);
       }
       if (data.user) {
         localStorage.setItem("user", JSON.stringify(data.user));
       }
-      if (data.role) {
-        localStorage.setItem("role", data.role);
+      if (data.user.role) {
+        localStorage.setItem("role", data.user.role);
       }
-      if (data.role === "seller") {
-        navigate("/seller-dashboard");
-      } else if (data.role === "admin") {
-        navigate("/admin-dashboard");
+      if (data.user.role === "seller") {
+        navigate("/seller/dashboard");
+      } else if (data.user.role === "admin") {
+        navigate("/admin/dashboard");
       } else {
         navigate("/home");
       }
@@ -84,7 +84,7 @@ const LoginForm = () => {
         </form>
         <div className="form-footer">
           <p>
-            Don't have an account? <Link to="/register_buyer">Sign up</Link>
+            Don't have an account? <Link to="/register-buyer">Sign up</Link>
           </p>
           <p>
             <Link to="/forgot-password">Forgot Password?</Link>

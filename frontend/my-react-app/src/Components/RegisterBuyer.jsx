@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const RegisterBuyer = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     user_name: "",
     email: "",
@@ -21,7 +22,7 @@ const RegisterBuyer = () => {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/register_buyer", {
+      const response = await fetch("http://localhost:3000/register/buyer", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +47,6 @@ const RegisterBuyer = () => {
         localStorage.setItem('role', data.role);
 
     }
-      const navigate = useNavigate();
       navigate('/home');
 
     } catch (error) {

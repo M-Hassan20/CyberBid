@@ -1,6 +1,6 @@
 // authUtils.js
 export const isAuthenticated = () => {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     return !!token;
   };
   
@@ -10,12 +10,12 @@ export const isAuthenticated = () => {
   };
   
   export const logout = () => {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
     window.location.href = '/login';
   };
   
   export const getAuthHeader = () => {
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     return token ? { Authorization: `Bearer ${token}` } : {};
   };
